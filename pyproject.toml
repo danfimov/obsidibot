@@ -1,0 +1,64 @@
+[project]
+name = "obsidibot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anyio>=4.9.0",
+    "chromadb>=1.0.0",
+    "langchain>=0.3.23",
+    "openai>=1.72.0",
+    "uvloop>=0.21.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.4",
+]
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    ".ruff_cache",
+    ".venv",
+    "venv",
+]
+
+[tool.ruff.lint]
+select = [
+    "ALL",
+]
+ignore = [
+    # docstring
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D107",
+
+    # strange rule about boolean default argument
+    "FBT001",
+    "FBT002",
+
+    # todo elements
+    "TD002",
+    "TD003",
+    "FIX002",
+
+    # Conflicted rules
+    "D203",  # with D211
+    "D212",  # with D213
+]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint.flake8-quotes]
+multiline-quotes = "double"
+docstring-quotes = "double"
+inline-quotes = "single"
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
